@@ -65,7 +65,7 @@ import { Booking } from '../../../shared/models';
                 <div class="text-sm text-stone-400">{{ b.venue?.name }}, {{ b.venue?.city }}</div>
               </div>
             </div>
-            <div class="font-display text-2xl font-bold text-accent">INR {{ b.totalPrice }}</div>
+            <div class="font-display text-2xl font-bold text-accent">₹ {{ b.totalPrice }}</div>
           </div>
 
           <!-- Meta -->
