@@ -126,7 +126,7 @@ import { User, Package }  from '../../shared/models';
                [style.border-color]="i===1 ? '#dc6b2f' : '#e7e5e4'"
                [style.box-shadow]="i===1 ? '0 16px 48px rgba(220,107,47,.15)' : '0 2px 8px rgba(28,25,23,.05)'">
             <div *ngIf="i===1" style="position:absolute;top:-16px;left:50%;transform:translateX(-50%);background:#dc6b2f;color:#fff;font-size:11px;font-weight:800;padding:6px 16px;border-radius:999px;text-transform:uppercase;letter-spacing:.06em;white-space:nowrap">Most Popular</div>
-            <div style="font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:700;color:#dc6b2f;margin-bottom:4px">\${{ p.basePrice }}</div>
+            <div style="font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:700;color:#dc6b2f;margin-bottom:4px">₹ {{ p.basePrice }}</div>
             <div style="font-size:12px;color:#a8a29e;margin-bottom:16px">starting price</div>
             <h3 style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:#1c1917;margin-bottom:8px">{{ p.name }}</h3>
             <p style="font-size:13px;color:#a8a29e;margin-bottom:20px;line-height:1.65">{{ p.description }}</p>

@@ -92,7 +92,7 @@ export class LoginComponent {
   }
 }
 
-// ── register.component.ts ─────────────────────────────────────────────────────
+// ── register.component.ts ───────────────────────────────────
 @Component({
   selector: 'app-register',
   standalone: true,

@@ -105,7 +105,7 @@ const BookingStep = {
               <div *ngIf="selectedPackage?._id===p._id" class="absolute top-3 right-3 w-6 h-6 bg-accent rounded-full flex items-center justify-center">
                 <ng-icon name="heroCheckCircle" class="w-4 h-4 text-white"/>
               </div>
-              <div class="font-display text-3xl font-bold text-accent mb-1">\${{ p.basePrice }}</div>
+              <div class="font-display text-3xl font-bold text-accent mb-1">₹ {{ p.basePrice }}</div>
               <h3 class="font-display text-lg font-bold text-stone-900 mb-2">{{ p.name }}</h3>
               <p class="text-xs text-stone-400 mb-4 leading-relaxed">{{ p.description }}</p>
               <div class="text-xs text-stone-400 mb-4 flex items-center gap-1">
@@ -282,7 +282,7 @@ const BookingStep = {
           <div class="max-w-2xl">
             <div class="card p-6 mb-5">
               <div class="flex flex-col gap-0">
-                <div class="flex justify-between py-2.5 border-b border-stone-50 text-sm"><span class="text-stone-400">Package</span><strong class="text-stone-800">{{ selectedPackage?.name }} — \${{ selectedPackage?.basePrice }}</strong></div>
+                <div class="flex justify-between py-2.5 border-b border-stone-50 text-sm"><span class="text-stone-400">Package</span><strong class="text-stone-800">{{ selectedPackage?.name }} — ₹ {{ selectedPackage?.basePrice }}</strong></div>
                 <div class="flex justify-between py-2.5 border-b border-stone-50 text-sm"><span class="text-stone-400">Date</span><strong class="text-stone-800">{{ selectedDate | date:'EEEE, MMMM d, y' }}</strong></div>
                 <div class="flex justify-between py-2.5 border-b border-stone-50 text-sm"><span class="text-stone-400">Time</span><strong class="text-stone-800">{{ selectedStartTime }} – {{ selectedEndTime }}</strong></div>
                 <div class="flex justify-between py-2.5 border-b border-stone-50 text-sm"><span class="text-stone-400">Event</span><strong class="text-stone-800">{{ detailsForm.value.eventType | titlecase }}</strong></div>
@@ -292,8 +292,8 @@ const BookingStep = {
             </div>
             <div class="bg-orange-50 border border-orange-200 rounded-2xl p-5 mb-6 text-sm text-stone-600">
               <strong class="text-accent block mb-1">Deposit Due Now</strong>
-              A 30% deposit of <strong class="text-accent">\${{ depositAmount | number:'1.2-2' }}</strong> is required to confirm your date.
-              The remaining <strong>\${{ remainingAmount | number:'1.2-2' }}</strong> is due on the event day.
+              A 30% deposit of <strong class="text-accent">₹ {{ depositAmount | number:'1.2-2' }}</strong> is required to confirm your date.
+              The remaining <strong>₹ {{ remainingAmount | number:'1.2-2' }}</strong> is due on the event day.
             </div>
             <div *ngIf="submitError" class="bg-red-50 border border-red-200 rounded-xl p-4 text-sm text-red-600 mb-4">⚠ {{ submitError }}</div>
             <div class="flex justify-between">
@@ -316,7 +316,7 @@ const BookingStep = {
           <h2 class="font-display text-2xl font-bold text-stone-900 mb-1">Secure Payment</h2>
           <p class="text-stone-400 text-sm mb-7">
             Pay the 30% deposit of
-            <strong class="text-accent">\${{ depositAmount | number:'1.2-2' }}</strong>
+            <strong class="text-accent">₹ {{ depositAmount | number:'1.2-2' }}</strong>
             to confirm your date.
           </p>
           <div class="max-w-lg">
@@ -356,7 +356,7 @@ const BookingStep = {
                       class="btn-primary disabled:opacity-40 disabled:cursor-not-allowed min-w-[160px] justify-center">
                 <span *ngIf="!isProcessingPayment" class="flex items-center gap-2">
                   <ng-icon name="heroLockClosed" class="w-4 h-4"/>
-                  Pay \${{ depositAmount | number:'1.2-2' }}
+                  Pay ₹ {{ depositAmount | number:'1.2-2' }}
                 </span>
                 <span *ngIf="isProcessingPayment" class="flex items-center gap-2">
                   <div class="w-4 h-4 border-2 border-white/40 border-t-white rounded-full animate-spin"></div>Processing…
@@ -373,7 +373,7 @@ const BookingStep = {
           </div>
           <h2 class="font-display text-3xl font-bold text-stone-900 mb-3">Booking Confirmed!</h2>
           <p class="text-stone-500 text-base mb-2 max-w-md mx-auto">
-            Your deposit of <strong class="text-accent">\${{ depositAmount | number:'1.2-2' }}</strong> has been received and your booking is now active.
+            Your deposit of <strong class="text-accent">₹ {{ depositAmount | number:'1.2-2' }}</strong> has been received and your booking is now active.
           </p>
           <p class="text-stone-400 text-sm mb-8">A confirmation email has been sent to you.</p>
           <div class="flex justify-center gap-4">

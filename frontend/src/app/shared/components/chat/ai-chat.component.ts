@@ -176,7 +176,7 @@ type PaymentView = 'preview' | 'stripe' | 'success' | 'error';
           <div class="flex items-center justify-between pt-3 border-t border-stone-100">
             <div>
               <div class="text-stone-400 text-[10px] uppercase tracking-wide">Deposit due</div>
-              <div class="font-display font-bold text-accent text-lg">\${{ bookingPreview.depositDue }}</div>
+              <div class="font-display font-bold text-accent text-lg">₹ {{ bookingPreview.depositDue }}</div>
             </div>
             <button (click)="openStripeInChat()"
                     class="flex items-center gap-2 bg-accent text-white font-bold px-4 py-2.5 rounded-xl text-xs hover:bg-accent-dark transition-colors border-0">
@@ -192,7 +192,7 @@ type PaymentView = 'preview' | 'stripe' | 'success' | 'error';
             <span class="font-bold text-stone-800 text-sm flex items-center gap-1.5">
               <ng-icon name="heroLockClosed" class="w-4 h-4 text-accent"/>Secure Payment
             </span>
-            <span class="font-display font-bold text-accent">\${{ bookingPreview.depositDue }}</span>
+            <span class="font-display font-bold text-accent">₹ {{ bookingPreview.depositDue }}</span>
           </div>
 
           <div *ngIf="isStripeLoading" class="flex items-center justify-center gap-2 py-6 text-stone-400 text-sm">
@@ -226,7 +226,7 @@ type PaymentView = 'preview' | 'stripe' | 'success' | 'error';
                     [disabled]="isStripeLoading || !isCardComplete || isProcessingPayment"
                     class="flex-[2] flex items-center justify-center gap-1.5 bg-accent text-white font-bold py-2 rounded-xl text-xs hover:bg-accent-dark transition-all disabled:opacity-40 disabled:cursor-not-allowed border-0">
               <span *ngIf="!isProcessingPayment" class="flex items-center gap-1.5">
-                <ng-icon name="heroLockClosed" class="w-3.5 h-3.5"/>Pay \${{ bookingPreview.depositDue }}
+                <ng-icon name="heroLockClosed" class="w-3.5 h-3.5"/>Pay ₹ {{ bookingPreview.depositDue }}
               </span>
               <span *ngIf="isProcessingPayment" class="flex items-center gap-1.5">
                 <div class="w-3.5 h-3.5 border-2 border-white/40 border-t-white rounded-full animate-spin"></div>Processing…
@@ -501,7 +501,7 @@ export class AiChatComponent implements OnInit, AfterViewChecked, OnDestroy {
     });
   }
 
-  /** User clicks "Pay $X" inside the chat panel */
+  /** User clicks "Pay ₹ X" inside the chat panel */
   async confirmChatPayment(): Promise<void> {
     if (!this.stripe || !this.stripeElements || !this.isCardComplete || !this.bookingPreview) return;
 

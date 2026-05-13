@@ -17,7 +17,7 @@ const formatDate = (date) => new Date(date).toLocaleDateString('en-US', {
   weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
 });
 
-const formatCurrency = (amount) => `$${amount.toLocaleString()}`;
+const formatCurrency = (amount) => `INR ${amount.toLocaleString()}`;
 
 // Base email wrapper
 const baseTemplate = (title, content) => `

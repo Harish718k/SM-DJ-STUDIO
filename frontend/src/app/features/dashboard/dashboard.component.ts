@@ -172,7 +172,7 @@ import { Booking } from '../../shared/models';
                 </div>
               </div>
               <div class="text-right shrink-0">
-                <div class="font-display text-xl font-bold text-accent">\${{ b.totalPrice }}</div>
+                <div class="font-display text-xl font-bold text-accent">₹ {{ b.totalPrice }}</div>
               </div>
             </div>
 

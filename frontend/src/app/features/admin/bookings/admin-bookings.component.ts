@@ -4,8 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
   heroCheckCircle, heroXCircle, heroTrophy, heroXMark,
-  heroCalendarDays, heroClock, heroUser, heroArchiveBox,
-  heroCurrencyDollar
+  heroCalendarDays, heroClock, heroUser, heroArchiveBox
 } from '@ng-icons/heroicons/outline';
 import { BookingService } from '../../../core/services/api.service';
 import { Booking } from '../../../shared/models';
@@ -14,7 +13,7 @@ import { Booking } from '../../../shared/models';
   selector: 'app-admin-bookings',
   standalone: true,
   imports: [CommonModule, FormsModule, NgIconComponent],
-  viewProviders: [provideIcons({ heroCheckCircle, heroXCircle, heroTrophy, heroXMark, heroCalendarDays, heroClock, heroUser, heroArchiveBox, heroCurrencyDollar })],
+  viewProviders: [provideIcons({ heroCheckCircle, heroXCircle, heroTrophy, heroXMark, heroCalendarDays, heroClock, heroUser, heroArchiveBox })],
   template: `
     <div class="p-8">
       <div class="flex items-start justify-between mb-7">
@@ -66,7 +65,7 @@ import { Booking } from '../../../shared/models';
                 <div class="text-sm text-stone-400">{{ b.venue?.name }}, {{ b.venue?.city }}</div>
               </div>
             </div>
-            <div class="font-display text-2xl font-bold text-accent">\${{ b.totalPrice }}</div>
+            <div class="font-display text-2xl font-bold text-accent">INR {{ b.totalPrice }}</div>
           </div>
 
           <!-- Meta -->

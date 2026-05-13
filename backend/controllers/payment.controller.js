@@ -17,7 +17,7 @@ exports.createPaymentIntent = async (req, res) => {
 
     const amountInCents = Math.round(Number(amount) * 100);
     if (isNaN(amountInCents) || amountInCents < 50) {
-      return errorResponse(res, 'Invalid amount — must be at least $0.50', 400);
+      return errorResponse(res, 'Invalid amount — must be at least INR 0.50', 400);
     }
 
     const booking = await Booking.findById(bookingId);
@@ -37,7 +37,7 @@ exports.createPaymentIntent = async (req, res) => {
     // Create the PaymentIntent on Stripe
     const paymentIntent = await stripe.paymentIntents.create({
       amount:                    amountInCents,
-      currency:                  'usd',
+      currency:                  'inr',
       automatic_payment_methods: { enabled: true },
       metadata: {
         bookingId: bookingId.toString(),

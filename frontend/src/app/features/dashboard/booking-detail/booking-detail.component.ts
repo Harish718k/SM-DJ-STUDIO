@@ -4,7 +4,7 @@ import { ActivatedRoute, RouterLink, Router } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
   heroArrowLeft, heroMapPin, heroUsers, heroClock,
-  heroArchiveBox, heroCurrencyDollar, heroChatBubbleBottomCenter, heroCheckCircle,
+  heroArchiveBox, heroChatBubbleBottomCenter, heroCheckCircle,
   heroStar,
 } from '@ng-icons/heroicons/outline';
 import { BookingService } from '../../../core/services/api.service';
@@ -14,7 +14,7 @@ import { Booking } from '../../../shared/models';
   selector: 'app-booking-detail',
   standalone: true,
   imports: [CommonModule, RouterLink, NgIconComponent],
-  viewProviders: [provideIcons({ heroArrowLeft, heroMapPin, heroUsers, heroClock, heroArchiveBox, heroCurrencyDollar, heroChatBubbleBottomCenter, heroCheckCircle, heroStar })],
+  viewProviders: [provideIcons({ heroArrowLeft, heroMapPin, heroUsers, heroClock, heroArchiveBox, heroChatBubbleBottomCenter, heroCheckCircle, heroStar })],
   template: `
     <div class="min-h-screen bg-cream">
       <!-- Top bar -->
@@ -89,13 +89,13 @@ import { Booking } from '../../../shared/models';
                 <strong class="text-stone-800">{{ booking.package.duration }} hours</strong>
               </div>
               <div class="flex justify-between items-start py-2 border-b border-stone-50 text-sm">
-                <span class="flex items-center gap-2 text-stone-400"><ng-icon name="heroCurrencyDollar" class="w-4 h-4"/>Total Price</span>
-                <strong class="font-display text-xl text-accent">\${{ booking.totalPrice }}</strong>
+                <span class="text-stone-400">Total Price</span>
+                <strong class="font-display text-xl text-accent">₹ {{ booking.totalPrice }}</strong>
               </div>
               <div class="flex justify-between items-start py-2 text-sm">
                 <span class="text-stone-400">Deposit (30%)</span>
                 <strong [class.text-emerald-600]="booking.depositPaid" [class.text-amber-600]="!booking.depositPaid">
-                  \${{ booking.depositAmount }} · {{ booking.depositPaid ? 'Paid ✓' : 'Pending' }}
+                  ₹ {{ booking.depositAmount }} · {{ booking.depositPaid ? 'Paid ✓' : 'Pending' }}
                 </strong>
               </div>
             </div>

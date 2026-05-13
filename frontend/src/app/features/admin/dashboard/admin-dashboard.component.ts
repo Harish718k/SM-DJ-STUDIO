@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
-  heroCurrencyDollar, heroClipboardDocumentList, heroClock,
+  heroClipboardDocumentList, heroClock,
   heroChartBar, heroArrowRight
 } from '@ng-icons/heroicons/outline';
 import { AnalyticsService, BookingService } from '../../../core/services/api.service';
@@ -13,7 +13,7 @@ import { AnalyticsSummary, MonthlyData, EventTypeData, Booking } from '../../../
   selector: 'app-admin-dashboard',
   standalone: true,
   imports: [CommonModule, RouterLink, NgIconComponent],
-  viewProviders: [provideIcons({ heroCurrencyDollar, heroClipboardDocumentList, heroClock, heroChartBar, heroArrowRight })],
+  viewProviders: [provideIcons({ heroClipboardDocumentList, heroClock, heroChartBar, heroArrowRight })],
   template: `
     <div class="p-8">
       <div class="mb-7">
@@ -25,10 +25,10 @@ import { AnalyticsSummary, MonthlyData, EventTypeData, Booking } from '../../../
       <div class="grid grid-cols-4 gap-4 mb-6">
         <div class="card p-5 flex items-center gap-4">
           <div class="w-11 h-11 bg-amber-50 rounded-xl flex items-center justify-center shrink-0">
-            <ng-icon name="heroCurrencyDollar" class="w-5 h-5 text-amber-500"/>
+            <span class="text-amber-500 text-lg font-bold">₹</span>
           </div>
           <div>
-            <div class="font-display text-2xl font-bold text-stone-900">\${{ summary?.totalRevenue | number:'1.0-0' }}</div>
+            <div class="font-display text-2xl font-bold text-stone-900">₹ {{ summary?.totalRevenue | number:'1.0-0' }}</div>
             <div class="text-xs text-stone-400">Total Revenue</div>
           </div>
         </div>
@@ -55,7 +55,7 @@ import { AnalyticsSummary, MonthlyData, EventTypeData, Booking } from '../../../
             <ng-icon name="heroChartBar" class="w-5 h-5 text-emerald-500"/>
           </div>
           <div>
-            <div class="font-display text-2xl font-bold text-stone-900">\${{ summary?.monthlyRevenue | number:'1.0-0' }}</div>
+            <div class="font-display text-2xl font-bold text-stone-900">₹ {{ summary?.monthlyRevenue | number:'1.0-0' }}</div>
             <div class="text-xs text-stone-400">This Month</div>
           </div>
         </div>
@@ -71,7 +71,7 @@ import { AnalyticsSummary, MonthlyData, EventTypeData, Booking } from '../../../
             <div *ngFor="let m of monthly" class="flex flex-col items-center flex-1 h-full">
               <div class="flex-1 w-full flex items-end">
                 <div class="w-full bg-accent rounded-t-md min-h-[4px] transition-all hover:opacity-75"
-                     [style.height.%]="getBarHeight(m.revenue)" [title]="'$'+m.revenue"></div>
+                     [style.height.%]="getBarHeight(m.revenue)" [title]="'₹ '+m.revenue"></div>
               </div>
               <div class="text-[9px] text-stone-400 mt-1.5">{{ m.monthName | slice:0:3 }}</div>
             </div>
@@ -124,7 +124,7 @@ import { AnalyticsSummary, MonthlyData, EventTypeData, Booking } from '../../../
               <td class="px-4 py-3 text-stone-500 text-sm">{{ b.client?.name }}</td>
               <td class="px-4 py-3 text-stone-500 text-sm">{{ b.eventDate | date:'MMM d, y' }}</td>
               <td class="px-4 py-3 text-stone-500 text-sm">{{ b.package?.name }}</td>
-              <td class="px-4 py-3 font-display font-bold text-accent text-sm">\${{ b.totalPrice }}</td>
+              <td class="px-4 py-3 font-display font-bold text-accent text-sm">₹ {{ b.totalPrice }}</td>
               <td class="px-4 py-3"><span [class]="'badge-'+b.status">{{ b.status | titlecase }}</span></td>
             </tr>
           </tbody>

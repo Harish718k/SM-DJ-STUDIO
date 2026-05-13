@@ -109,7 +109,7 @@ async function executeTool(name, args, userId) {
       try {
         paymentIntent = await stripe.paymentIntents.create({
           amount:                    depositAmount * 100,
-          currency:                  'usd',
+          currency:                  'inr',
           automatic_payment_methods: { enabled: true },
           metadata: {
             clientId:  userId.toString(),

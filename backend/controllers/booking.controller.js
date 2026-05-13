@@ -47,7 +47,7 @@ exports.createBooking = async (req, res) => {
     // Create Stripe PaymentIntent before DB write so failures don't orphan bookings
     const paymentIntent = await stripe.paymentIntents.create({
       amount:                    depositAmount * 100,
-      currency:                  'usd',
+      currency:                  'inr',
       automatic_payment_methods: { enabled: true },
       metadata: {
         clientId:  req.user.id.toString(),

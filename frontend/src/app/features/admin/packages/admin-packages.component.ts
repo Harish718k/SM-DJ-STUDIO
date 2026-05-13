@@ -39,17 +39,13 @@ import { Package } from '../../../shared/models';
               <h3 class="font-display text-lg font-bold text-stone-900 mb-1">{{ p.name }}</h3>
               <p class="text-xs text-stone-400 leading-relaxed">{{ p.description }}</p>
             </div>
-            <div class="font-display text-2xl font-bold text-accent shrink-0">\${{ p.basePrice }}</div>
+            <div class="font-display text-2xl font-bold text-accent shrink-0">₹ {{ p.basePrice }}</div>
           </div>
-
-          <div class="flex items-center gap-2 mb-4">
-            <span class="text-xs text-stone-400 flex items-center gap-1">⏱ {{ p.duration }}h</span>
-            <span class="text-xs font-bold px-2 py-0.5 rounded-full"
-                  [class.bg-emerald-100]="p.isActive" [class.text-emerald-700]="p.isActive"
-                  [class.bg-red-100]="!p.isActive" [class.text-red-600]="!p.isActive">
-              {{ p.isActive ? 'Active' : 'Inactive' }}
-            </span>
-          </div>
+          <span class="rounded-full px-3 py-1 text-xs font-semibold"
+                [class.bg-emerald-100]="p.isActive" [class.text-emerald-700]="p.isActive"
+                [class.bg-red-100]="!p.isActive" [class.text-red-600]="!p.isActive">
+            {{ p.isActive ? 'Active' : 'Inactive' }}
+          </span>
 
           <ul class="flex flex-col gap-2 mb-5 flex-1">
             <li *ngFor="let f of p.features" class="flex items-start gap-2 text-sm text-stone-600">
@@ -89,7 +85,7 @@ import { Package } from '../../../shared/models';
                 <input type="text" formControlName="name" class="form-input" placeholder="e.g. Premium Package"/>
               </div>
               <div>
-                <label class="form-label">Base Price ($)</label>
+                <label class="form-label">Base Price (₹)</label>
                 <input type="number" formControlName="basePrice" class="form-input" placeholder="800"/>
               </div>
             </div>
