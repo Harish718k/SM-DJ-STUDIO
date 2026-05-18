@@ -41,7 +41,7 @@ import { Package } from '../../../shared/models';
             </div>
             <div class="font-display text-2xl font-bold text-accent shrink-0">₹ {{ p.basePrice }}</div>
           </div>
-          <span class="rounded-full px-3 py-1 text-xs font-semibold"
+              <span class="rounded-full px-3 py-1 mb-3 text-xs font-semibold self-start w-max"
                 [class.bg-emerald-100]="p.isActive" [class.text-emerald-700]="p.isActive"
                 [class.bg-red-100]="!p.isActive" [class.text-red-600]="!p.isActive">
             {{ p.isActive ? 'Active' : 'Inactive' }}
